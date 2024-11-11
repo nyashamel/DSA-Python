@@ -1,36 +1,29 @@
-class Node: 
+class Node:
     def __init__(self,data):
-        self.data= data
+        self.data = data
         self.next = None
 
 class LinkedList:
     def __init__(self):
-        self.head
-
+        self.head = None
+    
     def insert_at_end(self, data):
         new_node = Node(data)
-        
+
         if not self.head:
             self.head = new_node
 
-        else:
+        else: 
             current = self.head
             while current.next:
-                current = current.next
-            current.next = new_node
+                curent = current.next
+        current= new_node
 
-    def dispaly (self):
+    def display (self):
         current = self.head
-
         if not current:
-            print ('List is empty')
-            return
-
+            print("list is empty")
         while current:
-            print(current.data, end= "->")
+            print (self.data, end= "=>")
             current = current.next
-            print('None')
-            
-
-        
-        
+        print(None)
