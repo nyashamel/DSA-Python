@@ -75,3 +75,11 @@ def fib_iterative(n):
 
 print(fib_iterative(10))
 
+#FACTORIAL OF A NUMBER
+
+def factorial_ite(n):
+    result = 1 
+    for i in range (1, n +1):
+        result *= i
+    return result
+print(factorial_ite)
