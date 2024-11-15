@@ -83,3 +83,88 @@ def factorial_ite(n):
         result *= i
     return result
 print(factorial_ite)
+
+#DOUBLY LINKED LISTS 
+
+class Node:
+    def __init__(self,data):
+        self.data = data 
+        self.next = None
+        self.prev = None
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None 
+
+    def insert_at_end(self,data):
+        new_node = Node(data)
+
+        if not self.head:
+            self.head = new_node
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = new_node
+        new_node.prev = current
+    def display_forward(self):
+            current = self.head
+
+            if not current:
+                print ("List is empty")
+                return
+            while current:
+                print(current.data, end= "=>")
+                current = current.next
+            print ("None")
+    def display_backward(self):
+            current = self.head
+
+            if not current:
+                print("List is empty")
+                return
+            while current:
+                print(current.data, end="=>")
+                current =current.prev
+            print("None")
+
+    def delete_by_value(self, value):
+            current = self.head
+            if current and current.data == value:
+                if not current.next:
+                    self.head = None
+                else:
+                    self.head = current.next
+                    self.head.prev = None
+                current = None
+                return
+            
+            while current and current.data != value:
+                current = current.next
+
+            if not current:
+                print ("Value nit found in List")
+                return
+            
+            if current.next:
+                current.next.prev = current.prev
+            if current.prev:
+                current.prev.next = current.next
+            current = None
+
+dll= DoublyLinkedList()
+dll.insert_at_end(10)
+dll.insert_at_end(2)
+dll.insert_at_end(4)
+
+print("Doubly Linked List (Forward):")
+dll.display_forward()
+
+print("Doubly Linked List (Backward):")
+dll.display_backward()
+
+print("Deleting a node with value 20:")
+dll.delete_by_value(20)
+dll.display_forward()
+
+
+
