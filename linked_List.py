@@ -60,3 +60,18 @@ llist.display()
 print("Deleting a node with value 1")
 llist.deleted_by_value(1)
 llist.display()
+
+# Fibonacci Series
+
+def fib_iterative(n):
+    fib_series =[]
+    a, b = 0, 1
+
+    for _ in range (n):
+        fib_series.append (a)
+        a,b = b, a+b
+
+    return fib_series
+
+print(fib_iterative(10))
+
