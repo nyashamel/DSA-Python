@@ -166,5 +166,19 @@ print("Deleting a node with value 20:")
 dll.delete_by_value(20)
 dll.display_forward()
 
+#SUM OF A TWO DIMENSIONAL ARRAY
+def sum_of_2D_array(array):
+    total_sum =0
+    for row in array:
+        for num in row:
+            total_sum += num
+    return total_sum
 
+array = [
+    [1,2,3],
+    [8,7,6],
+    [4,5,6]
+]
 
+result= sum_of_2D_array(array)
+print("The sum of all umbers in the 2D array is:", result)
