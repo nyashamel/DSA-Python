@@ -16,14 +16,47 @@ class LinkedList:
         else: 
             current = self.head
             while current.next:
-                curent = current.next
+                current = current.next
         current= new_node
 
     def display (self):
         current = self.head
         if not current:
             print("list is empty")
+            return
         while current:
-            print (self.data, end= "=>")
+            print (current.data, end= "=>")
             current = current.next
         print(None)
+
+    def deleted_by_value(self, value):
+        current = self.head
+
+        if current and current.data == value:
+            self.head = current.next
+            current = None
+            return
+        
+        prev = None
+        while current and current.data != value:
+            prev =current 
+            current = current.next
+
+        if not current:
+            print("value not found in list")
+            return
+        
+        prev.next = current.next
+        current= None 
+
+llist = LinkedList()
+llist.insert_at_end(10)
+llist.insert_at_end(1)
+llist.insert_at_end(9)
+llist.insert_at_end(5)
+print("Linked List:")
+llist.display()
+
+print("Deleting a node with value 1")
+llist.deleted_by_value(1)
+llist.display()
