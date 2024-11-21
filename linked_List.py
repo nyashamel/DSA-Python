@@ -17,7 +17,7 @@ class LinkedList:
             current = self.head
             while current.next:
                 current = current.next
-        current= new_node
+        current= new_nodeA
 
     def display (self):
         current = self.head
@@ -182,3 +182,135 @@ array = [
 
 result= sum_of_2D_array(array)
 print("The sum of all umbers in the 2D array is:", result)
+
+
+#Implementation of Stack Using a Linked list
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None  
+class Stack:
+    def __init__(self):
+        self.top = None 
+
+    def push(self, data):
+        """Add an element to the top of the stack."""
+        new_node = Node(data)
+        new_node.next = self.top 
+        self.top = new_node  
+
+    def pop(self):
+        """Remove and return the element from the top of the stack."""
+        if self.is_empty():
+            print("Stack is empty!")
+            return None
+        popped_data = self.top.data  
+        self.top = self.top.next  
+        return popped_data
+
+    def peek(self):
+        """Return the top element without removing it."""
+        if self.is_empty():
+            print("Stack is empty!")
+            return None
+        return self.top.data
+
+    def is_empty(self):
+        """Check if the stack is empty."""
+        return self.top is None
+
+    def display(self):
+        """Display all elements in the stack."""
+        if self.is_empty():
+            print("Stack is empty!")
+            return
+        current = self.top
+        print("Stack elements (Top to Bottom):")
+        while current:
+            print(current.data, end=" => ")
+            current = current.next
+        print("None")
+
+stack = Stack()
+
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+
+stack.display()
+
+print("Top element is:", stack.peek())
+
+
+print("Popped element:", stack.pop())
+stack.display()
+
+print("Popped element:", stack.pop())
+print("Popped element:", stack.pop())
+
+
+print("Popped element:", stack.pop())
+
+        
+class Stack:
+    def __init__(self, size):
+        """Initialize the stack with a fixed size."""
+        self.stack = []  # Array to store stack elements
+        self.size = size  # Maximum size of the stack
+
+    def push(self, data):
+        """Add an element to the top of the stack."""
+        if len(self.stack) >= self.size:
+            print("Stack Overflow! Cannot add more elements.")
+        else:
+            self.stack.append(data)
+            print(f"Pushed {data} onto the stack.")
+
+    def pop(self):
+        """Remove and return the top element from the stack."""
+        if self.is_empty():
+            print("Stack Underflow! The stack is empty.")
+            return None
+        return self.stack.pop()
+
+    def peek(self):
+        """Return the top element without removing it."""
+        if self.is_empty():
+            print("Stack is empty!")
+            return None
+        return self.stack[-1]
+
+    def is_empty(self):
+        """Check if the stack is empty."""
+        return len(self.stack) == 0
+
+    def display(self):
+        """Display all elements in the stack."""
+        if self.is_empty():
+            print("Stack is empty!")
+        else:
+            print("Stack elements (Top to Bottom):")
+            for i in reversed(self.stack):
+                print(i, end=" => ")
+            print("None")
+
+stack = Stack(size=5)  
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+stack.display()
+
+
+print("Top element is:", stack.peek())
+
+
+print("Popped element:", stack.pop())
+stack.display()
+
+
+stack.pop()
+stack.pop()
+stack.pop()  
